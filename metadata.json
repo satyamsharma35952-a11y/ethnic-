@@ -1,0 +1,7 @@
+{
+  "name": "Copy of EthnicElite Kurtis",
+  "description": "A premium e-commerce experience for ethnic Kurtis, featuring an AI-powered style assistant and seamless shopping journey.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
