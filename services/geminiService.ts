@@ -1,11 +1,15 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the Google GenAI SDK strictly using the environment variable.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// We initialize the client in a way that respects the environment but doesn't crash if process.env is missing
+const getAIClient = () => {
+  const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : "";
+  return new GoogleGenAI({ apiKey: apiKey || "" });
+};
 
 export const getStyleAdvice = async (userInput: string, productsSummary: string) => {
   try {
+    const ai = getAIClient();
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `User is looking for style advice: "${userInput}". Here is our current collection: ${productsSummary}. Provide 2-3 specific recommendations from the catalog or general ethnic styling tips. Be professional, friendly, and helpful like a high-end boutique personal shopper.`,
@@ -15,7 +19,6 @@ export const getStyleAdvice = async (userInput: string, productsSummary: string)
       },
     });
 
-    // Accessing the .text property directly as per the latest SDK requirements.
     return response.text;
   } catch (error) {
     console.error("Gemini Stylist Error:", error);

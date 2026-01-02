@@ -74,6 +74,14 @@
         to { opacity: 1; transform: scale(1); }
       }
     </style>
+    <!-- Polyfill to prevent "process is not defined" error on static hosts like Netlify/GitHub -->
+    <script>
+      window.process = {
+        env: {
+          API_KEY: "" 
+        }
+      };
+    </script>
   <script type="importmap">
 {
   "imports": {
@@ -88,6 +96,7 @@
 </head>
   <body class="bg-white text-gray-900 overflow-x-hidden">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <!-- Changed to relative path for better deployment compatibility -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
