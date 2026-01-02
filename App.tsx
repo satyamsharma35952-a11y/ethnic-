@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import ProductCard from './components/ProductCard';
-import StyleAssistant from './components/StyleAssistant';
-import { PRODUCTS, CATEGORIES } from './constants';
-import { Product, CartItem, View, Order } from './types';
+import Header from './components/Header.tsx';
+import ProductCard from './components/ProductCard.tsx';
+import StyleAssistant from './components/StyleAssistant.tsx';
+import { PRODUCTS, CATEGORIES } from './constants.tsx';
+import { Product, CartItem, View, Order } from './types.ts';
 import { 
   ShoppingBag, ChevronRight, X, ArrowRight, ShieldCheck, 
   Truck, RefreshCw, Star, Heart, User, CreditCard, 

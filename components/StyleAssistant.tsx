@@ -1,8 +1,7 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Sparkles, Send, X, User, Bot, Loader2 } from 'lucide-react';
-import { getStyleAdvice } from '../services/geminiService';
-import { PRODUCTS } from '../constants';
+import { getStyleAdvice } from '../services/geminiService.ts';
+import { PRODUCTS } from '../constants.tsx';
 
 const StyleAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
